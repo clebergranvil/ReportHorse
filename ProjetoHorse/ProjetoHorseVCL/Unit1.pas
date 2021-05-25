@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Horse, ppPrnabl, ppClass, ppCtrls,
   ppBands, ppCache, ppDesignLayer, ppParameter, ppComm, ppRelatv, ppProd,
-  ppReport;
+  ppReport, Vcl.StdCtrls;
 
 type
   TForm1 = class(TForm)
@@ -18,6 +18,7 @@ type
     ppDetailBand1: TppDetailBand;
     ppFooterBand1: TppFooterBand;
     ppLabel1: TppLabel;
+    Memo1: TMemo;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -54,6 +55,8 @@ begin
       ppReport1.ModalCancelDialog := False;
       ppReport1.ModalPreview := False;
       ppReport1.Print;
+
+      Memo1.Lines.Add('Impresso - ' + 'teste' + vNamePdf + '.pdf');
 
       Res.Send('pong');
     end);
